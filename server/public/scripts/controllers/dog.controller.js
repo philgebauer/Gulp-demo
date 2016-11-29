@@ -7,19 +7,20 @@ animalAPI.controller('dogController', ['$http', function($http) {
 
   self.animal = {};
 
+
   self.getRandomPet = function(){
     var query = 'http://api.petfinder.com/';
     query += 'pet.getRandom';
     query += '?key=' + key;
     query += '&format=json';
     query += '&output=basic';
-    query += '&breed=' + dog;
+    query += '&breed=dog';
     var request = encodeURI(query) + '&callback=JSON_CALLBACK';
 
     console.log('Request:', request);
 
     $http.jsonp(request).then(function(response){
-      console.log(response);
+      console.log('response', response);
       self.animal = response.data.petfinder.pet;
     });
 

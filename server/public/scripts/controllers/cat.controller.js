@@ -13,7 +13,7 @@ animalAPI.controller('catController', ['$http', function($http) {
     query += '?key=' + key;
     query += '&format=json';
     query += '&output=basic';
-    query += '&breed=' + cat;
+    query += '&breed=cat';
     var request = encodeURI(query) + '&callback=JSON_CALLBACK';
 
     console.log('Request:', request);
