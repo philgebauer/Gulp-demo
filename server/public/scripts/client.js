@@ -1,30 +1,24 @@
-var app = angular.module('app', []);
+var animalAPI = angular.module('animalAPI', ['ngRoute']);
 
-app.controller('firstController', ['$http', function($http) {
-  console.log('firstController up and running');
-  var key = 'b900e0d5e332753a460a64eaa8de00fd';
-  var self = this;
+animalAPI.config(['$routeProvider', function($routeProvider) {
 
-  self.animal = {};
-
-  self.getRandomPet = function(){
-    var query = 'http://api.petfinder.com/';
-    query += 'pet.getRandom';
-    query += '?key=' + key;
-    query += '&format=json';
-    query += '&output=basic';
-    var request = encodeURI(query) + '&callback=JSON_CALLBACK';
-
-    console.log('Request:', request);
-
-    $http.jsonp(request).then(function(response){
-      console.log(response);
-      self.animal = response.data.petfinder.pet;
-    });
-
-  }
-
-  self.getRandomPet();
-
-  self.message = "Welcome!"
+    $routeProvider
+        .when('/cat', {
+            templateUrl: '/views/templates/cat.html',
+            controller: 'catController',
+            controllerAs: 'cat'
+        })
+        .when('/dog', {
+            templateUrl: '/views/templates/dog.html',
+            controller: 'dogController',
+            controllerAs: 'dog'
+        })
+        .when('/fish', {
+            templateUrl: '/views/templates/fish.html',
+            controller: 'fishController',
+            controllerAs: 'fish'
+        })
+        .otherwise({
+            redirectTo: '/dog'
+        });
 }]);
