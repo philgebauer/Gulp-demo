@@ -1,5 +1,4 @@
 
-
 animalAPI.controller('dogController', ['$http', function($http) {
   console.log('dogController up and running');
   var key = 'fdc4fa785ddc6dca4bbe895233717593';

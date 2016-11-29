@@ -21,6 +21,7 @@ animalAPI.controller('catController', ['$http', function($http) {
     $http.jsonp(request).then(function(response){
       console.log(response);
       self.animal = response.data.petfinder.pet;
+      console.log('self.animal', self.animal);
     });
 
   }
