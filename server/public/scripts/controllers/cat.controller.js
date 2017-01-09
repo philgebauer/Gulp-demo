@@ -1,4 +1,4 @@
-animalAPI.controller('catController', ['$http', function($http) {
+potatoanimalAPI.controller('catController', ['$http', function($http) {
     console.log('catController up and running');
     var key = 'fdc4fa785ddc6dca4bbe895233717593';
     var self = this;
